@@ -1,5 +1,5 @@
 * {
-    margin: 0;
+    margin: 0px;
     padding: 0;
     box-sizing: border-box;
 }
@@ -36,10 +36,16 @@ body {
     backdrop-filter: blur(10px);
 }
 
+.logo-circle img.wave-icon {
+    display: block;
+    margin: 0 auto;
+}
+
 .wave-icon {
-    width: 40px;
-    height: 40px;
-    fill: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; 
+    object-fit: cover; 
 }
 
 .app-title {

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import './Login.css'; // Certifique-se de importar o CSS
+import './Login.css';
+import waveIcon from './assets/wave-icon.png'; // Importando o ícone
+
 
 const Login = () => {
   const [email, setEmail] = useState(""); // Estado para armazenar o e-mail
@@ -19,11 +21,7 @@ const Login = () => {
       {/* Logo Section */}
       <div className="logo-section">
         <div className="logo-circle">
-          <svg className="wave-icon" viewBox="0 0 24 24">
-            <path d="M2 12c0-2.5 2-4.5 4.5-4.5S11 9.5 11 12s-2 4.5-4.5 4.5S2 14.5 2 12z" />
-            <path d="M8 12c0-2.5 2-4.5 4.5-4.5S17 9.5 17 12s-2 4.5-4.5 4.5S8 14.5 8 12z" />
-            <path d="M14 12c0-2.5 2-4.5 4.5-4.5S23 9.5 23 12s-2 4.5-4.5 4.5S14 14.5 14 12z" />
-          </svg>
+          <img src={waveIcon} alt="Wave Icon" className="wave-icon" /> {/* Imagem do ícone circular */}
         </div>
         <h1 className="app-title">WavesMusic</h1>
         <p className="app-subtitle">Entre na sua conta</p>
@@ -83,7 +81,7 @@ const Login = () => {
           <p className="create-account">
             Não tem uma conta? <a href="#" onClick={() => alert('Criar conta')}>Criar conta</a>
           </p>
-          <a href="#" className="back-link" onClick={() => alert('Voltar para o início')}>← Voltar para o início</a>
+          <a href="#" className="back-link" onClick={() => alert('Voltar para o início')}>Voltar para o início</a>
         </div>
       </div>
     </div>
