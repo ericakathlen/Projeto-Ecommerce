@@ -1,0 +1,223 @@
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 25%, #9333EA 50%, #7C3AED 75%, #6D28D9 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    backdrop-filter: blur(10px);
+}
+
+.logo-circle img.wave-icon {
+    display: block;
+    margin: 0 auto;
+}
+
+.wave-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
+.app-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.app-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+}
+
+.login-card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
+    backdrop-filter: blur(20px);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-label {
+    display: block;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    fill: rgba(255, 255, 255, 0.5);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background: #9333EA;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 24px;
+}
+
+.login-button:hover {
+    background: #7C3AED;
+}
+
+.login-button:active {
+    transform: translateY(1px);
+}
+
+.form-links {
+    text-align: center;
+}
+
+.create-account {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.create-account a {
+    color: #C084FC;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.create-account a:hover {
+    color: #DDD6FE;
+}
+
+.back-link {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+    }
+    
+    .login-card {
+        padding: 24px;
+    }
+    
+    .app-title {
+        font-size: 28px;
+    }
+}
+@media (max-width: 360px) {
+    .logo-circle {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .wave-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .app-title {
+        font-size: 24px;
+    }
+    
+    .login-title {
+        font-size: 18px;
+    }
+    
+    .form-input {
+        padding: 12px 12px 12px 36px;
+    }
+}
