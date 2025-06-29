@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/Cadastro.css"; // Import do CSS
-import waveIcon from "../assets/logoEcommerces2.png"; // Sua imagem
+import "../styles/Cadastro.css";
+import waveIcon from "../assets/logoEcommerces2.png"; 
 
 function Cadastro() {
   const [formData, setFormData] = useState({
@@ -11,7 +11,7 @@ function Cadastro() {
     email: "",
     birthDate: "",
     password: "",
-    confirmPassword: "",
+    confirmPassword: ""
   });
 
   const [message, setMessage] = useState("");
@@ -42,13 +42,14 @@ function Cadastro() {
   return (
     <div className="cadastro-container">
       <div className="cadastro-content">
-        {/* Logo */}
         <div className="cadastro-logo">
-          <div className="cadastro-logo-circle">
-            <img src={waveIcon} alt="WavesMusic" className="cadastro-wave-icon" />
+          <div className="logoInferior">
+            <img src={waveIcon} alt="logo_WavesMusic" id="logo_inferior" />
           </div>
-          <h1 className="cadastro-title">WavesMusic</h1>
-          <p className="cadastro-subtitle">Crie sua conta</p>
+          <div className="nomeMarca">
+            <h1>WavesMusic</h1>
+            <p className="cadastro-subtitle">Crie sua conta</p>
+          </div>
         </div>
 
         <div className="cadastro-card">
@@ -139,6 +140,11 @@ function Cadastro() {
               <Link to="/login" className="cadastro-link">
                 Fazer login
               </Link>
+              <p>
+              <Link to="/" className="login-link">
+                Voltar para o início
+              </Link>
+            </p>
             </p>
           </div>
         </div>

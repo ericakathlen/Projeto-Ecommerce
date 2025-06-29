@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import AlbumCard from '../components/AlbumCard';
 import FeatureList from '../components/FeatureList';
 import "../styles/Home.css";
+import logoWaves from '../assets/logoEcommerces2.png';
 
 function Home() {
   return (
@@ -11,7 +12,7 @@ function Home() {
         <Header />
 
         <div className="logoInferior">
-          <img src="/src/assets/logoEcommerces2.png" alt="logo_WavesMusic" id="logo_inferior" />
+          <img src={logoWaves} alt="logo_WavesMusic" id="logo_inferior" />
         </div>
 
         <div className="nomeMarca">

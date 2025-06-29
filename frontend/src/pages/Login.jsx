@@ -20,60 +20,64 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="logo-section">
-        <div className="logo-circle">
-          <img src={waveIcon} alt="Wave Icon" className="wave-icon" />
+      <div className="login-content">
+        <div className="login-logo">
+          <div className="logoInferior">
+            <img src={waveIcon} alt="logo_WavesMusic" id="logo_inferior" />
+          </div>
+          <div className="nomeMarca">
+            <h1>WavesMusic</h1>
+            <p className="login-subtitle">Entre na sua conta</p>
+          </div>
         </div>
-
-        <h1 className="app-title">WavesMusic</h1>
-        <p className="app-subtitle">Entre na sua conta</p>
-      </div>
     
-      <div className="login-card">
-        <div className="login-header">
-          <h2 className="login-title">Login</h2>
-          <p className="login-subtitle">Entre com suas credenciais</p>
-        </div>
+        <div className="login-card">
+          <h2 className="login-card-title">Login</h2>
+          <p className="login-card-subtitle">Entre com suas credenciais</p>
 
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="email" className="form-label">Email</label>
-            <div className="input-wrapper">
+          <form onSubmit={handleSubmit} className="login-form">
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
               <input
                 type="email"
                 id="email"
-                className="form-input"
+                name="email"
                 placeholder="seu@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
-          </div>
 
-          <div className="form-group">
-            <label htmlFor="password" className="form-label">Senha</label>
-            <div className="input-wrapper">
+            <div className="form-group">
+              <label htmlFor="password">Senha</label>
               <input
                 type="password"
                 id="password"
-                className="form-input"
+                name="password"
                 placeholder="Sua senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
+
+            <button type="submit" className="login-button">Entrar</button>
+          </form>
+
+          <div className="login-footer">
+            <p>
+              Não tem uma conta?{" "}
+              <Link to="/cadastro" className="login-link">
+                Criar conta
+              </Link>
+            </p>
+            <p>
+              <Link to="/" className="login-link">
+                Voltar para o início
+              </Link>
+            </p>
           </div>
-
-          <button type="submit" className="login-button">Entrar</button>
-        </form>
-
-        <div className="form-links">
-          <p className="create-account">
-            Não tem uma conta? <Link to="/cadastro">Criar conta</Link>
-          </p>
-          <Link to="/" className="back-link">Voltar para o início</Link>
         </div>
       </div>
     </div>

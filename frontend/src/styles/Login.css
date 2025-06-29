@@ -1,224 +1,297 @@
-* {
-    margin: 0px;
-    padding: 0;
-    box-sizing: border-box;
+/* ========================================
+   PÁGINA DE LOGIN - WAVESMUSIC
+   ======================================== */
+
+/* ========================================
+   CONTAINER PRINCIPAL
+   ======================================== */
+.login-container {
+  min-height: 100vh;
+  width: 100vw;
+  background: radial-gradient(ellipse at center, #000000 15%, #1a001f 35%, #30003f 60%, #1a001f 85%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 25%, #9333EA 50%, #7C3AED 75%, #6D28D9 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+.login-content {
+  width: 100%;
+  max-width: 400px;
+  animation: fadeInUp 0.6s ease-out;
 }
 
-.container {
-    width: 100vw;
-    justify-content: center;
+/* ========================================
+   SEÇÃO DO LOGO - ESTILO IGUAL AO DA HOME
+   ======================================== */
+.login-logo {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.logo-section {
-    text-align: center;
-    margin-bottom: 40px;
-    
+/* Logo inferior - mesmo estilo da Home */
+.logoInferior {
+  background-color: transparent;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: -5px;
 }
 
-.logo-circle {
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    backdrop-filter: blur(10px);
+#logo_inferior {
+  height: 36%;
+  border-radius: 7.5rem;
+  transition: transform 0.3s ease;
 }
 
-.logo-circle img.wave-icon {
-    display: block;
-    margin: 0 auto;
+#logo_inferior:hover {
+  transform: scale(1.05);
 }
 
-.wave-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%; 
-    object-fit: cover; 
+/* Nome da marca - mesmo estilo da Home */
+.nomeMarca {
+  background-color: transparent;
+  width: 100%;
+  height: 23vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
 }
 
-.app-title {
-    font-size: 32px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 8px;
-}
-
-.app-subtitle {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
-}
-
-.login-card {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 32px;
-    backdrop-filter: blur(20px);
-}
-
-.login-header {
-    text-align: center;
-    margin-bottom: 32px;
-}
-
-.login-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 8px;
+.nomeMarca h1 {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin: 0;
 }
 
 .login-subtitle {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 8px;
 }
 
-.form-group {
-    margin-bottom: 24px;
+/* ========================================
+   CARD PRINCIPAL
+   ======================================== */
+.login-card {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-label {
-    display: block;
-    color: white;
-    font-size: 14px;
-    margin-bottom: 8px;
-    font-weight: 500;
+.login-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-.input-wrapper {
-    position: relative;
+.login-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.input-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    fill: rgba(255, 255, 255, 0.5);
+.login-card-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 1.4;
 }
 
-.form-input {
-    width: 100%;
-    padding: 12px 12px 12px 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    color: white;
-    font-size: 14px;
-    transition: all 0.3s ease;
+/* ========================================
+   FORMULÁRIO
+   ======================================== */
+.login-form .form-group {
+  margin-bottom: 16px;
 }
 
-.form-input::placeholder {
-    color: rgba(243, 235, 235, 0.5);
+.login-form label {
+  display: block;
+  color: white;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.form-input:focus {
-    outline: none;
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+.login-form input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
+.login-form input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.login-form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.login-form input:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ========================================
+   BOTÃO
+   ======================================== */
 .login-button {
-    width: 100%;
-    padding: 14px;
-    background: #9333EA;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 24px;
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
+  margin-bottom: 24px;
 }
 
-.login-button:hover {
-    background: #7C3AED;
+.login-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(147, 51, 234, 0.4);
 }
 
-.login-button:active {
-    transform: translateY(1px);
+.login-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(147, 51, 234, 0.3);
 }
 
-.form-links {
-    text-align: center;
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.create-account {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
-    margin-bottom: 16px;
+/* ========================================
+   RODAPÉ
+   ======================================== */
+.login-footer {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.create-account a {
-    color: #C084FC;
-    text-decoration: underline;
-    transition: color 0.3s ease;
+.login-footer p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin: 8px 0;
 }
 
-.create-account a:hover {
-    color: #DDD6FE;
+.login-link {
+  color: #ddd6fe;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
-.back-link {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.login-link:hover {
+  color: #c4b5fd;
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(196, 181, 253, 0.5);
 }
 
-.back-link:hover {
-    color: rgba(255, 255, 255, 0.8);
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
 @media (max-width: 480px) {
-    .container {
-        max-width: 100%;
-    }
-    
-    .login-card {
-        padding: 24px;
-    }
-    
-    .app-title {
-        font-size: 28px;
-    }
+  .login-container {
+    padding: 16px;
+  }
+  
+  .login-card {
+    padding: 24px;
+  }
+  
+  .nomeMarca h1 {
+    font-size: 2rem;
+  }
+  
+  .logoInferior {
+    height: 30vh;
+  }
+  
+  #logo_inferior {
+    height: 30%;
+  }
 }
+
 @media (max-width: 360px) {
-    .logo-circle {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .wave-icon {
-        width: 30px;
-        height: 30px;
-    }
-    
-    .app-title {
-        font-size: 24px;
-    }
-    
-    .login-title {
-        font-size: 18px;
-    }
-    
-    .form-input {
-        padding: 12px 12px 12px 36px;
-    }
+  .login-card {
+    padding: 20px;
+  }
+  
+  .nomeMarca h1 {
+    font-size: 1.8rem;
+  }
+  
+  .login-card-title {
+    font-size: 18px;
+  }
+  
+  .logoInferior {
+    height: 25vh;
+  }
+  
+  #logo_inferior {
+    height: 25%;
+  }
 }
