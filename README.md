@@ -65,7 +65,7 @@ projeto-ecommerce/
 - Erica Kathlen - [GitHub](https://github.com/ericakathlen)
 - Ramon - [GitHub](https://github.com/ramonsll)
 - Antonio Carlos - [GitHub](https://github.com/Antonio-CarIos)
-- Leticia - 
+- Leticia - [GitHub](https://github.com/letmirandasz)
 
 ## 📞 Suporte
 Para suporte, envie um email para ericakathlen@alu.uern.br ou abra uma issue no projeto.
