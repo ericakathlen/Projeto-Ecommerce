@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantidade: 1
+  carrinho: one
+  album: one
+
+two:
+  quantidade: 1
+  carrinho: two
+  album: two

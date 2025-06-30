@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spotify_id: MyString
+  nome: MyString
+  url_capa: MyString
+  preco: 9.99
+  estoque: 1
+  data_lancamento: 2025-06-22
+  artist: one
+  genero: one
+
+two:
+  spotify_id: MyString
+  nome: MyString
+  url_capa: MyString
+  preco: 9.99
+  estoque: 1
+  data_lancamento: 2025-06-22
+  artist: two
+  genero: two

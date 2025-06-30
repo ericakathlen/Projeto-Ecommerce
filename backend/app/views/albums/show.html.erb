@@ -1,0 +1,29 @@
+<h1>Albums#show</h1>
+
+<h1><%= @album.nome %></h1>
+
+<div>
+    <p>Artista: <%= @album.artist.nome %> | <%= link_to "Detalhes", artist_path(@album.artist.id) %></p><br>
+    <p><img src="<%= @album.url_capa %>" alt="<%= @album.nome%>"></p><br>
+    <p>Preco: <%= @album.preco %></p><br>
+    <p>Estoque: <%= @album.estoque %></p><br>
+    <p>Data Lancamento: <%= @album.data_lancamento %></p><br>
+    <p>ID Spotify: <%= @album.spotify_id %></p><br>
+    <p>Genero: <%= @album.genero.nome %> </p>
+</div>
+
+<%= button_to "Favoritar", favorito_index_path(album_id: @album.id), method: :post %>
+
+<%= form_with url: item_carrinho_index_path, method: :post, local: true do |form|%>
+    <%= form.hidden_field :album_id, value: @album.id %>
+    <%= form.number_field :quantidade, min: 1, max: @album.estoque, value:1 %>
+    <%= form.submit "Adicionar ao Carrinho" %>
+<%end%>
+
+<br>
+<% if user_signed_in? %>
+    <%= button_to 'Exit', destroy_user_session_path, method: :delete, local: true %>
+<%end%>
+
+<%= link_to "Voltar", albums_path %>
+

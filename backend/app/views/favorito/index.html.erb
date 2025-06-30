@@ -1,0 +1,10 @@
+<h1>Favorito#index</h1>
+
+<h2>Lista Albums:</h2>
+
+<% @albums.each do |album| %>
+    <div>
+        <p> <%= album.nome %> - <%= album.artist.nome %> </p>
+        <p> <%= album.url_capa %> </p>
+    </div>
+<%end%>

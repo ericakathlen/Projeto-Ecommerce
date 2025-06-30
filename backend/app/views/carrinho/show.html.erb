@@ -1,0 +1,12 @@
+<h1>Carrinho</h1>
+
+<% if @itens_carrinho.present? %>
+  <% @itens_carrinho.each do |item| %>
+    <div>
+      <p> Álbum: <%= item.album.nome %> </p>
+      <p> Quantidade: <%= item.quantidade %> </p>
+    </div>
+  <% end %>
+<% else %>
+  <p>Seu carrinho está vazio.</p>
+<% end %>

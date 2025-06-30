@@ -1,0 +1,17 @@
+<h1>Artists#show</h1>
+
+<h1><%= @artist.nome %> </h1>
+
+<h2>Detalhes do artista:</h2>
+
+<div>
+    <p><img src="<%= @artist.url_foto %>" alt="<%= @artist.nome%>"></p><br>
+    <p> <%= @artist.spotify_id %> </p><br>
+
+    <h2>Albuns:</h2>
+    <% @artist.albums.each do |artist| %>
+        <h3><%= artist.nome %></h3>
+        <img src="<%= artist.url_capa %>" alt="<%= artist.nome %>">
+    <%end%>
+</div>
+

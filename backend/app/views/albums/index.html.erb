@@ -1,0 +1,24 @@
+<h1>Albums#index</h1>
+<% if user_signed_in? %>
+    <h2><%=current_user.email%></h2>
+<%end%>
+
+<h2>Buscar albums:</h2>
+<%= form_with url:search_albums_path, method: :get, local: true do |form| %>
+    <%= form.text_field :q, placeholder: "Digite o nome do Album"%>
+    <%= form.submit "Buscar" %>
+<%end%>
+
+<div>
+    <% @albums.each do |album| %>
+        <div>
+            <h3><%= album.nome %> - <%= album.artist.nome %>: <%= link_to "Artista", artist_path(album.artist.id) %></h3>
+            <p><img src="<%= album.url_capa %>" alt="<%= album.nome%>"></p><br>
+            <p> <%= link_to "Detalhes", album_path(album.id) %> </p><br>
+        </div>
+    <%end%>
+</div>
+
+
+
+
