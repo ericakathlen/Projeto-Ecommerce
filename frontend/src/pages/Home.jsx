@@ -22,7 +22,7 @@ function Home() {
         </div>
 
         <div className="botao">
-          <a href="/pagProdutos" className="btn-catalogo">🎵 Explorar Catálogo</a>
+          <a href="/Produtos" className="btn-catalogo">🎵 Explorar Catálogo</a>
         </div>
       </div>
 
@@ -50,7 +50,7 @@ function Home() {
           <br />
           <h2>Explore nosso catálogo e encontre seu próximo disco favorito</h2>
           <div className="botaoFinal">
-            <a href="/pagProdutos" className="btn-produtos">🎵 Ver todos os produtos</a>
+            <a href="/Produtos" className="btn-produtos">🎵 Ver todos os produtos</a>
           </div>
         </div>
       </div>

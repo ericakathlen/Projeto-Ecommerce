@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Produtos.css";
 
-// Importe suas imagens
 import logo from "../assets/logoEcommerces2.png";
 import loginIcon from "../assets/imageeLogin.png";
 import cartIcon from "../assets/imageCarrinho.png";
@@ -11,7 +10,6 @@ function Produtos() {
   return (
     <div className="produtos-container">
       <div className="principal">
-        {/* Menu Superior */}
         <div className="menu_superior">
           <div className="logo">
             <img src={logo} alt="logo_WavesMusic" id="logo_wavesMusic" />
@@ -44,48 +42,50 @@ function Produtos() {
             </Link>
           </div>
         </div>
-      </div>
 
-      {/* Texto e Filtros */}
-      <div className="texto">
-        <h1>Nosso Catálogo</h1>
-        <p>Explore nossa coleção completa de discos e vinis cuidadosamente selecionados</p>
-        <div className="filtros-container">
-          <label>Filtros:</label>
-          <input type="text" placeholder="Buscar por nome ou artista..." />
-          <select>
-            <option>Nome</option>
-            <option>Data</option>
-            <option>Popularidade</option>
-          </select>
-        </div>
+          <div className="texto">
+          <div className="logoInferior">
+            <img src={logo} alt="logo_WavesMusic" id="logo_inferior" />
+          </div>
+          <h1>Nosso Catálogo</h1>
+          <p>Explore nossa coleção completa de discos e vinis cuidadosamente selecionados</p>
+          <div className="filtros-container">
+            <label>Filtros:</label>
+            <input type="text" placeholder="Buscar por nome ou artista..." />
+            <select>
+              <option>Nome</option>
+              <option>Data</option>
+              <option>Popularidade</option>
+            </select>
+          </div>
 
-        {/* Produtos */}
-        <div className="produtos">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((_, index) => (
-            <div className="card" key={index}>
-              <span className="tag-ano">{`2025`}</span>
-              <img
-                src="https://via.placeholder.com/250x160?text=Disco"
-                alt="Capa do disco"
-              />
-              <span className="genero">Rock</span>
-              <div className="titulo">Título do Álbum</div>
-              <div className="artista">Artista</div>
-              <div className="preco-avaliacao">
-                <div className="preco">R$XX</div>
-                <div className="nota">
-                  <i className="fas fa-star"></i> ⭐AV
+          {/* Produtos */}
+          <div className="produtos">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((_, index) => (
+              <div className="card" key={index}>
+                <span className="tag-ano">{`2025`}</span>
+                <img
+                  src="https://via.placeholder.com/250x160?text=Disco"
+                  alt="Capa do disco"
+                />
+                <span className="genero">Rock</span>
+                <div className="titulo">Título do Álbum</div>
+                <div className="artista">Artista</div>
+                <div className="preco-avaliacao">
+                  <div className="preco">R$XX</div>
+                  <div className="nota">
+                    <i className="fas fa-star"></i> ⭐AV
+                  </div>
+                </div>
+                <div className="acoes">
+                  <button>Ver Detalhes</button>
+                  <button className="btn-carrinho">
+                    <img src={cartIcon} alt="Icone Carrinho" id="icone-carrinho" />
+                  </button>
                 </div>
               </div>
-              <div className="acoes">
-                <button>Ver Detalhes</button>
-                <button className="btn-carrinho">
-                  <img src={cartIcon} alt="Icone Carrinho" id="icone-carrinho" />
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

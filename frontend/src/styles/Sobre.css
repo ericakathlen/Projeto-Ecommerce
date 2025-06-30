@@ -18,12 +18,13 @@
     background-color: transparent;
 }
 
-.logoInferior{
+.logoInferior {
     background-color: transparent;
-    width: 100%;
-    height: 120vh;
+    padding: 1rem;
     display: flex;
     justify-content: center;
+    width: 100%;
+    height: 10vh;
     align-items: flex-end;
     margin-bottom: -5px;
 }
