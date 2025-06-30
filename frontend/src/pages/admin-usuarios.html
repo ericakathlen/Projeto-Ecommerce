@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WavesMusic Admin - Usuários</title>
+    <link rel="stylesheet" href="admin-usuarios-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h2>WavesMusic</h2>
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="admin-produtos.html" class="nav-link">
+                            <i class="fas fa-compact-disc"></i>
+                            <span>Produtos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="admin-usuarios.html" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Usuários</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        
+        <main class="main-content">
+            <div class="section-header">
+                <h1>Usuários</h1>
+                <button class="btn-add" onclick="openAddUserModal()">
+                    <i class="fas fa-plus"></i>
+                    Adicionar Usuário
+                </button>
+            </div>
+
+            
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Avatar</th>
+                            <th>Nome Completo</th>
+                            <th>Nome de Usuário</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Tipo</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr data-type="admin" data-status="active">
+                            <td>
+                                <div class="user-avatar">
+                                    <img src="https://picsum.photos/50/50?random=10" alt="João Silva">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="user-info">
+                                    <span class="user-name">%=usuario.nome%</span>
+                                    <span class="user-joined">Membro desde: Jan 2024</span>
+                                </div>
+                            </td>
+                            <td>%=usuario.nome%</td>
+                            <td>%=usuario.email%</td>
+                            <td>%=usuario.telefone%</td>
+                            <td>
+                                <span class="user-type admin">Admin</span>
+                            </td>
+                            <td>
+                                <span class="status-badge active">Ativo</span>
+                            </td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action edit" title="Editar" onclick="editUser(1)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" title="Excluir" onclick="deleteUser(1)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="btn-action toggle" title="Alterar Status" onclick="toggleUserStatus(1)">
+                                        <i class="fas fa-power-off"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-type="client" data-status="active">
+                            <td>
+                                <div class="user-avatar">
+                                    <img src="https://picsum.photos/50/50?random=11" alt="Maria Santos">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="user-info">
+                                    <span class="user-name">%=usuario.nome%</span>
+                                    <span class="user-joined">Membro desde: Fev 2024</span>
+                                </div>
+                            </td>
+                            <td>%=usuario.nome%</td>
+                            <td>%=usuario.email%</td>
+                            <td>%=usuario.telefone%</td>
+                            <td>
+                                <span class="user-type client">Cliente</span>
+                            </td>
+                            <td>
+                                <span class="status-badge active">Ativo</span>
+                            </td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action edit" title="Editar" onclick="editUser(2)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" title="Excluir" onclick="deleteUser(2)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="btn-action toggle" title="Alterar Status" onclick="toggleUserStatus(2)">
+                                        <i class="fas fa-power-off"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-type="client" data-status="inactive">
+                            <td>
+                                <div class="user-avatar">
+                                    <img src="https://picsum.photos/50/50?random=12" alt="Carlos Oliveira">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="user-info">
+                                    <span class="user-name">%=usuario.nome%</span>
+                                    <span class="user-joined">Membro desde: Mar 2024</span>
+                                </div>
+                            </td>
+                            <td>%=usuario.nome%</td></td>
+                            <td>%=usuario.email%</td>
+                            <td>%=usuario.telefone%</td>
+                            <td>
+                                <span class="user-type client">Cliente</span>
+                            </td>
+                            <td>
+                                <span class="status-badge inactive">Inativo</span>
+                            </td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action edit" title="Editar" onclick="editUser(3)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" title="Excluir" onclick="deleteUser(3)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="btn-action toggle" title="Alterar Status" onclick="toggleUserStatus(3)">
+                                        <i class="fas fa-power-off"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-type="client" data-status="active">
+                            <td>
+                                <div class="user-avatar">
+                                    <img src="https://picsum.photos/50/50?random=13" alt="Ana Costa">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="user-info">
+                                    <span class="user-name">%=usuario.nome%</span>
+                                    <span class="user-joined">Membro desde: Abr 2024</span>
+                                </div>
+                            </td>
+                            <td>%=usuario.nome%</td>
+                            <td>%=usuario.email%</td>
+                            <td>%=usuario.telefone%</td>
+                            <td>
+                                <span class="user-type client">Cliente</span>
+                            </td>
+                            <td>
+                                <span class="status-badge active">Ativo</span>
+                            </td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action edit" title="Editar" onclick="editUser(4)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" title="Excluir" onclick="deleteUser(4)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="btn-action toggle" title="Alterar Status" onclick="toggleUserStatus(4)">
+                                        <i class="fas fa-power-off"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-type="moderator" data-status="active">
+                            <td>
+                                <div class="user-avatar">
+                                    <img src="https://picsum.photos/50/50?random=14" alt="Pedro Lima">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="user-info">
+                                    <span class="user-name">%=usuario.nome%</span>
+                                    <span class="user-joined">Membro desde: Mai 2024</span>
+                                </div>
+                            </td>
+                            <td>%=usuario.nome%</td>
+                            <td>%=usuario.email%</td>
+                            <td>%=usuario.telefone%</td>
+                            <td>
+                                <span class="user-type moderator">Moderador</span>
+                            </td>
+                            <td>
+                                <span class="status-badge active">Ativo</span>
+                            </td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action edit" title="Editar" onclick="editUser(5)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" title="Excluir" onclick="deleteUser(5)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="btn-action toggle" title="Alterar Status" onclick="toggleUserStatus(5)">
+                                        <i class="fas fa-power-off"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Adicionar Novo Usuário</h2>
+                <button class="close-btn" onclick="closeAddUserModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="user-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Nome Completo</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Nome de Usuário</label>
+                        <input type="text" id="username" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="userType">Tipo de Usuário</label>
+                        <select id="userType" required>
+                            <option value="">Selecione...</option>
+                            <option value="admin">Admin</option>
+                            <option value="moderator">Moderador</option>
+                            <option value="client">Cliente</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status" required>
+                            <option value="active">Ativo</option>
+                            <option value="inactive">Inativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeAddUserModal()">Cancelar</button>
+                    <button type="submit" class="btn-save">Salvar Usuário</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin-usuarios-script.js"></script>
+</body>
+</html>
