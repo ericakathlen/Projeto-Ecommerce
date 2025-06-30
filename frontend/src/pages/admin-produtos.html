@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WavesMusic Admin - Produtos</title>
+    <link rel="stylesheet" href="admin-produtos-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h2>WavesMusic</h2>
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active">
+                        <a href="admin-produtos.html" class="nav-link">
+                            <i class="fas fa-compact-disc"></i>
+                            <span>Produtos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="admin-usuarios.html" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Usuários</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        
+        <main class="main-content">
+            <div class="section-header">
+                <h1>Produtos</h1>
+                <button class="btn-add" onclick="openAddProductModal()">
+                    <i class="fas fa-plus"></i>
+                    Adicionar Produto
+                </button>
+            </div>
+
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Capa</th>
+                            <th>Nome</th>
+                            <th>Artista</th>
+                            <th>Gênero</th>
+                            <th>Preço</th>
+                            <th>Estoque</th>
+                            <th>Categoria</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                        <tr data-genre="ambient" data-stock="in-stock">
+                            <td>
+                                <div class="album-cover">
+                                    <img src="https://picsum.photos/50/50?random=1" alt="Ocean Dreams">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="album-info">
+                                    <span class="album-name">%=album.nome%</span>
+                                    <span class="album-year">%=album.ano%</span>
+                                    <span class="album-description"></span>
+                                </div>
+                            </td>
+                            <td>%=album.artista%</td>
+                            <td>
+                                <span class="genre-tag ambient">%=album.genero%</span>
+                            </td>
+                            <td>%=album.valor%</td>
+                            <td>
+                                <span class="stock-badge in-stock">100</span>
+                            </td>
+                            <td>Álbuns</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action edit" title="Editar" onclick="editProduct(1)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" title="Excluir" onclick="deleteProduct(1)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="btn-action view" title="Visualizar" onclick="viewProduct(1)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-genre="electronic" data-stock="low-stock">
+                            <td>
+                                <div class="album-cover">
+                                    <img src="https://picsum.photos/50/50?random=2" alt="Tidal Waves">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="album-info">
+                                    <span class="album-name">%=album.nome%</span>
+                                    <span class="album-year">%=album.ano%</span>
+                                    <span class="album-description"></span>
+                                </div>
+                            </td>
+                            <td>%=album.artista%</td>
+                            <td>
+                                <span class="genre-tag electronic">%=album.genero%</span>
+                            </td>
+                            <td>%=album.valor%</td>
+                            <td>
+                                <span class="stock-badge low-stock">50</span>
+                            </td>
+                            <td>Álbuns</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action edit" title="Editar" onclick="editProduct(2)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" title="Excluir" onclick="deleteProduct(2)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="btn-action view" title="Visualizar" onclick="viewProduct(2)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-genre="jazz" data-stock="out-stock">
+                            <td>
+                                <div class="album-cover">
+                                    <img src="https://picsum.photos/50/50?random=3" alt="Deep Blue">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="album-info">
+                                    <span class="album-name">%=album.nome%</span>
+                                    <span class="album-year">%=album.ano%</span>
+                                    <span class="album-description"></span>
+                                </div>
+                            </td>
+                            <td>%=album.artista%</td>
+                            <td>
+                                <span class="genre-tag jazz">%=album.genero%</span>
+                            </td>
+                            <td>%=album.valor%</td>
+                            <td>
+                                <span class="stock-badge out-stock">0</span>
+                            </td>
+                            <td>Álbuns</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action edit" title="Editar" onclick="editProduct(3)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" title="Excluir" onclick="deleteProduct(3)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="btn-action view" title="Visualizar" onclick="viewProduct(3)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-genre="chillout" data-stock="in-stock">
+                            <td>
+                                <div class="album-cover">
+                                    <img src="https://picsum.photos/50/50?random=4" alt="Coral Reef">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="album-info">
+                                    <span class="album-name">%=album.nome%</span>
+                                    <span class="album-year">%=album.ano%</span>
+                                    <span class="album-description">Música relaxante oceânica</span>
+                                </div>
+                            </td>
+                            <td>%=album.artista%</td>
+                            <td>
+                                <span class="genre-tag chillout">%=album.genero%</span>
+                            </td>
+                            <td>%=album.valor%</td>
+                            <td>
+                                <span class="stock-badge in-stock">15</span>
+                            </td>
+                            <td>Álbuns</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action edit" title="Editar" onclick="editProduct(4)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" title="Excluir" onclick="deleteProduct(4)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="btn-action view" title="Visualizar" onclick="viewProduct(4)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-genre="classical" data-stock="in-stock">
+                            <td>
+                                <div class="album-cover">
+                                    <img src="https://picsum.photos/50/50?random=5" alt="Underwater Symphony">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="album-info">
+                                    <span class="album-name">%=album.nome%</span>
+                                    <span class="album-year">%=album.ano%</span>
+                                    <span class="album-description"></span>
+                                </div>
+                            </td>
+                            <td>D%=album.artista%</td>
+                            <td>
+                                <span class="genre-tag classical">%=album.genero%</span>
+                            </td>
+                            <td>%=album.valor%</td>
+                            <td>
+                                <span class="stock-badge in-stock">8</span>
+                            </td>
+                            <td>Álbuns</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action edit" title="Editar" onclick="editProduct(5)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" title="Excluir" onclick="deleteProduct(5)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="btn-action view" title="Visualizar" onclick="viewProduct(5)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+   
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Adicionar Novo Produto</h2>
+                <button class="close-btn" onclick="closeAddProductModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="product-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productName">Nome do Produto</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="artist">Artista</label>
+                        <input type="text" id="artist" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="genre">Gênero</label>
+                        <select id="genre" required>
+                            <option value="">Selecione...</option>
+                            <option value="ambient">Ambiente</option>
+                            <option value="electronic">Eletronica</option>
+                            <option value="jazz">Jazz</option>
+                            <option value="chillout">Chillout</option>
+                            <option value="classical">Classica</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="price">Preço</label>
+                        <input type="number" id="price" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Estoque</label>
+                        <input type="number" id="stock" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cover">Capa do Produto</label>
+                    <input type="file" id="cover" accept="image/*">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeAddProductModal()">Cancelar</button>
+                    <button type="submit" class="btn-save">Salvar Produto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin-produtos-script.js"></script>
+</body>
+</html>
