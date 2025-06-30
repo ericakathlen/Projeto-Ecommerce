@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="carrinhoConteudo.css">
+    <script src="carrinho.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="principal">
+            <div class="menu_superior">
+                <div class="logo">
+                    <img src="images/logoEcommerces2.png" alt="logo_WavesMusic" id="logo_wavesMusic">
+                    <h1 class="nome_marca">WavesMusic</h1>
+                </div>
+                <div class="links">
+                    <a href="pagInicial.html">Início</a>
+                    <a href="pagProdutos.html">Produtos</a>
+                    <a href="pagSobre.html">Sobre</a>
+                </div>
+                <div class="caixa-pesquisa">
+                    <div class="buscar">
+                        <i class="icone fas fa-search"></i>
+                        <input type="text" placeholder="Buscar discos, artistas..." class="entrada-busca" />
+                    </div>
+                </div>
+                <div class="login_carrinho">
+                    <a href="carrinho.html">
+                        <img src="images/imageeLogin.png" alt="Icone Login" class="icone-login">
+                    </a>
+                    <a href="carrinho.html">
+                        <img src="images/imageCarrinho.png" alt="Icone Carrinho" class="icone-carrinho">
+                    </a>
+                </div>
+            </div>
+            <div class="area-carrinho">
+
+                <div class="itens-carrinho">
+                    <h2>Itens no Carrinho (1)</h2>
+
+
+                    <div class="item-carrinho">
+                        <img src="images/coral_reef.jpg" alt="Coral Reef" class="item-img">
+
+                        <div class="detalhes">
+                            <h3>%=album.nome%</h3>
+                            <p><br><span class="genero">%=album.genero%</span></p>
+
+                            <div class="quantidade">
+                                <button class="btn">−</button>
+                                <span>1</span>
+                                <button class="btn">+</button>
+                                <button class="btn remover"><i class="fas fa-trash"></i></button>
+                            </div>
+
+                            <div class="preco">%=album.valor%</div>
+                        </div>
+                    </div>
+
+
+                    <button class="limpar-carrinho"><i class="fas fa-trash"></i> Limpar Carrinho</button>
+                </div>
+
+                <div class="resumo-pedido">
+                    <h2>Resumo do Pedido</h2>
+                    <div class="linha">
+                        <span>Subtotal:</span>
+                        <span>R$ 69,90</span>
+                    </div>
+                    <div class="linha">
+                        <span>Frete:</span>
+                        <span class="frete">Grátis</span>
+                    </div>
+                    <div class="linha total">
+                        <span>Total:</span>
+                        <span class="valor-total">%=valortotal%</span>
+                    </div>
+                    <input type="text" placeholder="Código de desconto" class="cupom">
+                    <button class="aplicar-cupom">Aplicar Cupom</button>
+                    <button class="finalizar">Finalizar Compra</button>
+                    <div class="seguro">
+                        Frete grátis para todo o Brasil<br>
+                        Entrega em até 7 dias úteis<br><br>
+                        <strong>Compra 100% Segura</strong><br>
+                        Seus dados estão protegidos com criptografia SSL
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
