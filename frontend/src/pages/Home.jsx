@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../components/Header';
 import AlbumCard from '../components/AlbumCard';
 import FeatureList from '../components/FeatureList';
@@ -6,6 +6,15 @@ import "../styles/Home.css";
 import logoWaves from '../assets/logoEcommerces2.png';
 
 function Home() {
+  const [albums, setAlbums] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/api/v1/albums')
+      .then(response => response.json())
+      .then(data => setAlbums(data))
+      .catch(error => console.error('Erro ao buscar álbuns:', error));
+  }, []);
+
   return (
     <div className="home-container">
       <div className="principal">
@@ -37,9 +46,9 @@ function Home() {
 
         <div className="albuns">
           <div className="grid-cards">
-            <AlbumCard />
-            <AlbumCard />
-            <AlbumCard />
+            {albums.slice(0, 3).map(album => (
+              <AlbumCard key={album.id} album={album}/>
+            ))}
           </div>
         </div>
 

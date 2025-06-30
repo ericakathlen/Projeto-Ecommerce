@@ -1,11 +1,20 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import logo from '../assets/logoEcommerces2.png';
 import loginIcon from '../assets/imageeLogin.png';
 import cartIcon from '../assets/imageCarrinho.png';
 
 
 function Header() {
+  const [query, setQuery] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    if (e.key === 'Enter' && query.trim()) {
+      navigate(`/produtos?q=${encodeURIComponent(query.trim())}`);
+    }
+  };
+
   return (
     <div className="menu_superior">
       <div className="logo">
@@ -23,7 +32,7 @@ function Header() {
       <div className="caixa-pesquisa">
         <div className="buscar">
           <i className="icone fas fa-search"></i>
-          <input type="text" placeholder="Buscar discos, artistas..." className="entrada-busca" />
+          <input type="text" placeholder="Buscar discos, artistas..." className="entrada-busca" value={query} onChange={(e) => setQuery(e.target.value)} onKeyDown={handleSearch} />
         </div>
       </div>
 
