@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/Carrinho.css"; 
+import "../styles/carrinho.css"; 
 
 import logo from "../assets/logoEcommerces2.png";
 import loginIcon from "../assets/imageeLogin.png";

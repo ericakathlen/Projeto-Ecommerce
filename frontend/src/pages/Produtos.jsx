@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Produtos.css";
 
@@ -8,6 +8,24 @@ import loginIcon from "../assets/imageeLogin.png";
 import cartIcon from "../assets/imageCarrinho.png";
 
 function Produtos() {
+  const [albums, setAlbums] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/api/v1/albums")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setAlbums(data);
+        } else {
+          console.error("Resposta não é um array:", data);
+          setAlbums([]);
+        }
+      })
+      .catch((err) => {
+        console.error("Erro ao buscar álbuns:", err);
+      });
+  }, []);
+
   return (
     <div className="produtos-container">
       <div className="principal">
@@ -62,31 +80,33 @@ function Produtos() {
 
         {/* Produtos */}
         <div className="produtos">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((_, index) => (
-            <div className="card" key={index}>
-              <span className="tag-ano">{`2025`}</span>
-              <img
-                src="https://via.placeholder.com/250x160?text=Disco"
-                alt="Capa do disco"
-              />
-              <span className="genero">Rock</span>
-              <div className="titulo">Título do Álbum</div>
-              <div className="artista">Artista</div>
-              <div className="preco-avaliacao">
-                <div className="preco">R$XX</div>
-                <div className="nota">
-                  <i className="fas fa-star"></i> ⭐AV
+          {albums.length > 0 ? (
+            albums.map((album) => (
+              <div className="card" key={album.id}>
+                <span className="tag-ano">{new Date(album.data_lancamento).getFullYear()}</span>
+                <img src={album.url_capa} alt={`Capa do álbum ${album.nome}`} />
+                <span className="genero">{album.genero?.nome}</span>
+                <div className="titulo">{album.nome}</div>
+                <div className="artista">{album.artist?.nome}</div>
+                <div className="preco-avaliacao">
+                  <div className="preco">R${album.preco}</div>
+                  <div className="nota">
+                    <i className="fas fa-star"></i> ⭐AV
+                  </div>
+                </div>
+                <div className="acoes">
+                  <button>Ver Detalhes</button>
+                  <button className="btn-carrinho">
+                    <img src={cartIcon} alt="Icone Carrinho" id="icone-carrinho" />
+                  </button>
                 </div>
               </div>
-              <div className="acoes">
-                <button>Ver Detalhes</button>
-                <button className="btn-carrinho">
-                  <img src={cartIcon} alt="Icone Carrinho" id="icone-carrinho" />
-                </button>
-              </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p>Nenhum álbum encontrado.</p>
+          )}
         </div>
+        
       </div>
     </div>
   );
